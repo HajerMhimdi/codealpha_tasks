@@ -41,20 +41,20 @@ function Index({ handleAddTask }) {
   return (
     <>
       <div className='container'>
-        <div className='form_title'>New Task</div>
+        <div className='form_title'>New Task: Plan Your Next Step</div>
         <form onSubmit={handleSubmit} className="addTask">
 
-<section className='task_container'>
-          <input placeholder="Add a title" type="text" onChange={onChangeTitle} value={title} className={errors.title ? 'error' : ''} />
-          {errors.title && <div className="error-message">{errors.title}</div>}
+          <section className='task_container'>
+            <input placeholder="Add a title" type="text" onChange={onChangeTitle} value={title} className={errors.title ? 'error' : ''} />
+            {errors.title && <div className="error-message">{errors.title}</div>}
           </section>
-<section className='task_container'>
-          <input placeholder="Add a description" type="text" onChange={onChangeDescription} value={description} className={errors.description ? 'error' : ''} />
-          {errors.description && <div className="error-message">{errors.description}</div>}
- </section>
-       <section className='task_container'>
-          <input placeholder="select" type="text" onChange={onChangeTitle} value={title} />
-</section>
+          <section className='task_container'>
+            <input placeholder="Add a description" type="text" onChange={onChangeDescription} value={description} className={errors.description ? 'error' : ''} />
+            {errors.description && <div className="error-message">{errors.description}</div>}
+          </section>
+          <section className='task_container'>
+            <input placeholder="select" type="text" onChange={onChangeTitle} value={title} />
+          </section>
           <Tooltip title={'Add New Task'}>
 
             <Button variant="contained" type="submit" className="submitButton"><AddTaskIcon /></Button>
