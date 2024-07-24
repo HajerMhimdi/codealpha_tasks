@@ -1,0 +1,84 @@
+.task {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  background: #ffffff;
+  border: 2px solid #008787;
+  padding: 10px;
+  border-radius: 8px;
+  gap: 10px;
+  margin-bottom: 2px;
+}
+
+.task-completed {
+  background: #d4d4d4;
+}
+
+.task-content {
+  width: 100%;
+}
+
+.titleStyle {
+  font-size: 18px;
+  color: #f5b02f;
+  margin: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.descriptionStyle {
+  font-size: 14px;
+  color: #000000;
+  margin: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.checkedButton {
+  font-size: xx-large !important;
+  color: #45c2b4;
+}
+
+.notCheckedButton {
+  font-size: xx-large !important;
+  color: #e9e6e6;
+}
+
+.deleteButton {
+  font-size: xx-large !important;
+  color: #e55941;
+}
+
+@media (hover: none) {
+  .css-sghohy-MuiButtonBase-root-MuiButton-root:hover {
+    background-color: #008787;
+  }
+}
+
+@media (min-width: 1240px) {
+  .task {
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .task-content {
+    flex: 1;
+  }
+
+  .task-actions {
+    flex: none;
+  }
+}
+
+@media (max-width: 600px) {
+  .task-actions {
+    justify-content: space-between;
+  }
+
+  .rowDirection {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}

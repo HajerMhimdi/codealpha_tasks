@@ -1,0 +1,71 @@
+  .list {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    padding: 14px;
+
+   
+  }
+
+  .image-cntainer{
+color: black;
+width: 40%;
+padding: 14px;
+display: flex;
+align-items: center;
+justify-content: center;
+height: 410px;
+position: relative;
+
+
+  }
+  .image{
+    display: flex;
+    width: 100%;
+  }
+
+  .list-container{
+    width: 58%;
+    gap: 10px;
+    overflow-y: auto;
+    position: relative;
+    max-height: 410px;
+    padding: 14px;
+    background-color: #f9f9f9;
+    position: relative;
+
+
+
+  }
+
+  .emptyTasks {
+    font-size: xx-large;
+    color: #bcbcbc;
+        justify-content: center;
+    align-items: center;
+    display: flex;
+  }
+
+  @media (max-width: 700px) {
+
+    .image-cntainer{
+     display: none;
+      
+        }
+        .list-container{
+          width: 100%;
+            
+      
+        }
+      
+
+  }
+
+  @media (max-width: 576px) {
+
+    .emptyTasks {
+      font-size: 1.3rem;
+    }
+
+  }
+
