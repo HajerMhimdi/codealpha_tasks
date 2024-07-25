@@ -8,6 +8,7 @@ const LOCAL_STORAGE_KEY = "todo:tasks";
 
 function App() {
   const [tasks, setTasks] = useState([]);
+  const [searchText, setSearchText] = useState("");
 
   function getTasks() {
     const storedTasks = localStorage.getItem(LOCAL_STORAGE_KEY);
@@ -55,14 +56,24 @@ function App() {
     });
     setTasks(newTasks);
   }
+
+  function handleSearch(text) {
+    setSearchText(text);
+  }
+
+  const filteredTasks = tasks.filter(
+    (task) => task.title.toLowerCase().includes(searchText.toLowerCase())
+    // task.listType.some(type => type.toLowerCase().includes(searchText.toLowerCase()))
+  );
+
   return (
     <>
-      <Heading tasks={tasks} />
+      <Heading tasks={tasks} onSearch={handleSearch} />
 
       <Index handleAddTask={addTask} />
 
       <TaskList
-        tasks={tasks}
+        tasks={filteredTasks}
         onDelete={deleteTaskById}
         onComplete={CompleteTasksById}
       />
