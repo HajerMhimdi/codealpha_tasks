@@ -1,13 +1,10 @@
 import { useEffect, useState } from "react";
 
-import Heading from './components/header/heading.jsx';
-import Index from './components/todoForm/index.jsx';
-import TaskList from './components/todoList/TasksList.jsx';
+import Heading from "./components/header/heading.jsx";
+import Index from "./components/todoForm/index.jsx";
+import TaskList from "./components/todoList/TasksList.jsx";
 
-
-
-
-const LOCAL_STORAGE_KEY = 'todo:tasks';
+const LOCAL_STORAGE_KEY = "todo:tasks";
 
 function App() {
   const [tasks, setTasks] = useState([]);
@@ -21,34 +18,38 @@ function App() {
 
   useEffect(() => {
     getTasks();
-  }, [])
+  }, []);
 
   function setSavedTasks(newTasks) {
     setTasks(newTasks);
     localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(newTasks));
   }
 
-  function addTask(newTitle, newDescription) {
-    setSavedTasks([...tasks, {
-      id: crypto.randomUUID(),
-      title: newTitle,
-      description: newDescription,
-      isCompleted: false
-    }]);
+  function addTask(newTitle, newDescription, newType) {
+    setSavedTasks([
+      ...tasks,
+      {
+        id: crypto.randomUUID(),
+        title: newTitle,
+        description: newDescription,
+        listType: newType,
+        isCompleted: false,
+      },
+    ]);
   }
 
   function deleteTaskById(taskId) {
-    const newTasks = tasks.filter(task => task.id !== taskId);
+    const newTasks = tasks.filter((task) => task.id !== taskId);
     setSavedTasks(newTasks);
   }
 
   function CompleteTasksById(taskId) {
-    const newTasks = tasks.map(task => {
+    const newTasks = tasks.map((task) => {
       if (task.id === taskId) {
         return {
           ...task,
-          isCompleted: !task.isCompleted
-        }
+          isCompleted: !task.isCompleted,
+        };
       }
       return task;
     });
@@ -60,11 +61,13 @@ function App() {
 
       <Index handleAddTask={addTask} />
 
-      <TaskList tasks={tasks}
+      <TaskList
+        tasks={tasks}
         onDelete={deleteTaskById}
-        onComplete={CompleteTasksById} />
+        onComplete={CompleteTasksById}
+      />
     </>
-  )
+  );
 }
 
-export default App
+export default App;

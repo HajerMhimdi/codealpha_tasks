@@ -1,23 +1,29 @@
 .container {
   display: flex;
-  justify-content: center;
   padding: 14px;
   flex-direction: column;
-  align-items: center;
-gap: 20px;
+  gap: 20px;
 }
 
-.form_title{
+.form_title {
   color: #fecbca;
   font-weight: bold;
-  font-size:25px;
-
+  font-size: 25px;
+  display: flex;
+  justify-content: center;
 }
 
-.task_container{
+.task_container {
   width: 100%;
 }
 
+#root > div.container > form > div:nth-child(1) {
+  display: grid;
+}
+
+#root > div.container > form > div:nth-child(2) {
+  display: grid;
+}
 
 .addTask {
   display: flex;
@@ -36,7 +42,6 @@ gap: 20px;
   height: 40px;
   color: #000000;
   background: #ffffff;
-  border: 2px solid #008787;
   border-radius: 8px;
   padding: 0 16px;
   font-size: 16px;
@@ -44,14 +49,20 @@ gap: 20px;
 }
 
 .addTask input::placeholder {
-  color: #008787;
+  color: #000000;
   font-weight: bold;
+}
+
+.btn-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .addTask button {
   height: 40px;
   background: #45c2b4;
-  color: #fff;
+
   border: none;
   border-radius: 8px;
   display: flex;
@@ -60,7 +71,7 @@ gap: 20px;
   gap: 6px;
   font-weight: 700;
   font-size: 14px;
-  border-color: #fecbca;
+  border-color: #45c2b4;
 }
 
 .error {
@@ -74,37 +85,30 @@ gap: 20px;
   font-weight: bold;
 }
 
-@media (min-width: 768px) {
+@media (max-width: 850px) {
+  .addTask {
+    width: 100%;
+    flex-direction: column;
+  }
+}
 
+@media (min-width: 768px) {
   .title-section,
   .description-section {
     flex: 1;
     margin-right: 10px;
   }
-
-
 }
 
 @media (max-width: 720px) {
-  .form_title{
-
-    font-size:21px;
-  
+  .form_title {
+    font-size: 21px;
   }
-
-
 }
 
 @media (max-width: 600px) {
-  .form_title{
-
-    font-size:18px;
-  
-  }
-  .addTask {
-    width: 100%;
-    flex-direction: column;
-
+  .form_title {
+    font-size: 18px;
   }
 
   .title-section,
@@ -118,15 +122,9 @@ gap: 20px;
   }
 }
 
-
 @media (max-width: 360px) {
-  .form_title{
-
-    font-size:15px;
-  
-  }
-  .addTask {
-    flex-direction: column;
+  .form_title {
+    font-size: 15px;
   }
 
   .addTask input {
